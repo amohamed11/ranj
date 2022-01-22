@@ -1,6 +1,9 @@
 package server
 
-import "github.com/beego/beego/v2/server/web"
+import (
+	"git.sr.ht/~anecdotal/ranj/game"
+	"github.com/beego/beego/v2/server/web"
+)
 
 func StartServer(host string, port string) {
 	ctrl := &MainController{}
@@ -15,5 +18,6 @@ type MainController struct {
 
 // address: http://localhost:8080/ GET
 func (ctrl *MainController) Index() {
-	ctrl.Ctx.WriteString("hello, world")
+	board := game.CreateBoard()
+	ctrl.Ctx.WriteString(board.RenderBoard())
 }

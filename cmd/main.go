@@ -1,8 +1,12 @@
 package main
 
-import "git.sr.ht/~anecdotal/ranj/game"
+import (
+	"fmt"
+
+	"git.sr.ht/~anecdotal/ranj/game"
+)
 
 func main() {
 	board := game.CreateBoard()
-	board.RenderBoard()
+	fmt.Print(board.RenderBoard())
 }
